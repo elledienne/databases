@@ -1,5 +1,6 @@
 var express = require('express');
 var db = require('./db');
+// console.log(db);
 
 // Middleware
 var morgan = require('morgan');
@@ -23,6 +24,8 @@ app.use("/classes", router);
 
 // Serve the client files
 app.use(express.static(__dirname + "/../client"));
+
+db.connect();
 
 // If we are being run directly, run the server.
 if (!module.parent) {
